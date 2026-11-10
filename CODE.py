@@ -47,30 +47,6 @@ with open(recipes[food],"r") as file:
             
         
         (multiplier(ingredients, servings))
-        loop = True
-
-with open (recipes[food], "r") as recipe:
-        for line in recipe:
-            if loop == True:
-                  if "serving size:" in line:
-                        print("serving size:", servings)
-                  else:
-                        
-                        if "Ingredients:" not  in line:
-                              print(line)
-                        
-                        elif "Ingredients:" in line:
-                              print(line)
-                              loop = False
-                              for i in ingredients:
-                                    for j in i:
-                                          print(j,end=" ")
-                                    print()
-                        
-            elif "Instructions:" in line:
-                        loop = True
-                        print(line)
-
             
 # -------------------- DIETARY RESTRICTIONS & SUBSTITUTIOS --------------------
 
@@ -159,3 +135,29 @@ else:
         original_ing = suggested_substitutes[i][0]
         replacement = suggested_substitutes[i][1]
         print("- " + original_ing + " --> Replace with: " + replacement)
+
+loop = True
+
+with open (recipes[food], "r") as recipe:
+        for line in recipe:
+            if loop == True:
+                  if "serving size:" in line:
+                        print("serving size:", servings)
+                  else:
+                        
+                        if "Ingredients:" not  in line:
+                              print(line)
+                        
+                        elif "Ingredients:" in line:
+                              print(line)
+                              loop = False
+                              for i in ingredients:
+                                    for j in i:
+                                          print(j,end=" ")
+                                    print()
+                        
+            elif "Instructions:" in line:
+                        loop = True
+                        print(line)
+
+        
